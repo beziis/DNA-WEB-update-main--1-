@@ -28,7 +28,7 @@ export default function MapSection() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="p-6 sm:p-8 rounded-2xl bg-[#0B2545]/60 border border-white/10 shadow-2xl relative overflow-hidden"
+      className="p-6 sm:p-8 rounded-2xl bg-[#0B2545]/60 keep-dark-panel border border-white/10 shadow-2xl relative overflow-hidden"
     >
       {/* Header Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-6">
@@ -164,7 +164,7 @@ export default function MapSection() {
 
       {/* Address Quick Stats Bar Below Map */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-        <div className="p-4 rounded-xl bg-[#051329]/80 border border-white/10 flex items-start space-x-3">
+        <div className="p-4 rounded-xl bg-[#051329]/80 keep-dark-panel border border-white/10 flex items-start space-x-3">
           <Building2 className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
           <div>
             <div className="text-[10px] font-mono text-white/50 uppercase font-bold">Office Address</div>
@@ -172,7 +172,7 @@ export default function MapSection() {
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#051329]/80 border border-white/10 flex items-start space-x-3">
+        <div className="p-4 rounded-xl bg-[#051329]/80 keep-dark-panel border border-white/10 flex items-start space-x-3">
           <Phone className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
           <div>
             <div className="text-[10px] font-mono text-white/50 uppercase font-bold">Direct Lines</div>
@@ -190,7 +190,7 @@ export default function MapSection() {
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#051329]/80 border border-white/10 flex items-start space-x-3">
+        <div className="p-4 rounded-xl bg-[#051329]/80 keep-dark-panel border border-white/10 flex items-start space-x-3">
           <Navigation className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
           <div>
             <div className="text-[10px] font-mono text-white/50 uppercase font-bold">City & Region</div>

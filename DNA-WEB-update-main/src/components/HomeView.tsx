@@ -181,7 +181,7 @@ export default function HomeView({ setCurrentPage }: HomeViewProps) {
           >
             <motion.div
               variants={fadeInUpItemVariants}
-              className="service-card p-8 rounded-[20px] bg-[#0B2545] border border-white/20 hover:border-white/50 hover:bg-[#0E2E54] shadow-xl space-y-4 text-left group card-hover-lift transition-all duration-300 relative z-10"
+              className="service-card p-8 rounded-[20px] bg-[#0B2545] keep-dark-panel border border-white/20 hover:border-white/50 hover:bg-[#0E2E54] shadow-xl space-y-4 text-left group card-hover-lift transition-all duration-300 relative z-10"
             >
               <div className="w-12 h-12 rounded-[12px] bg-[#0B2442] border border-white/20 flex items-center justify-center text-white group-hover:scale-110 group-hover:border-white/50 transition-all">
                 <Database className="w-6 h-6 text-white" />
@@ -194,7 +194,7 @@ export default function HomeView({ setCurrentPage }: HomeViewProps) {
 
             <motion.div
               variants={fadeInUpItemVariants}
-              className="service-card p-8 rounded-[20px] bg-[#0B2545] border border-white/20 hover:border-white/50 hover:bg-[#0E2E54] shadow-xl space-y-4 text-left group card-hover-lift transition-all duration-300 relative z-10"
+              className="service-card p-8 rounded-[20px] bg-[#0B2545] keep-dark-panel border border-white/20 hover:border-white/50 hover:bg-[#0E2E54] shadow-xl space-y-4 text-left group card-hover-lift transition-all duration-300 relative z-10"
             >
               <div className="w-12 h-12 rounded-[12px] bg-[#0B2442] border border-white/20 flex items-center justify-center text-white group-hover:scale-110 group-hover:border-white/50 transition-all">
                 <Shield className="w-6 h-6 text-white" />
@@ -207,7 +207,7 @@ export default function HomeView({ setCurrentPage }: HomeViewProps) {
 
             <motion.div
               variants={fadeInUpItemVariants}
-              className="service-card p-8 rounded-[20px] bg-[#0B2545] border border-white/20 hover:border-white/50 hover:bg-[#0E2E54] shadow-xl space-y-4 text-left group card-hover-lift transition-all duration-300 relative z-10"
+              className="service-card p-8 rounded-[20px] bg-[#0B2545] keep-dark-panel border border-white/20 hover:border-white/50 hover:bg-[#0E2E54] shadow-xl space-y-4 text-left group card-hover-lift transition-all duration-300 relative z-10"
             >
               <div className="w-12 h-12 rounded-[12px] bg-[#0B2442] border border-white/20 flex items-center justify-center text-white group-hover:scale-110 group-hover:border-white/50 transition-all">
                 <LayoutDashboard className="w-6 h-6 text-white" />
@@ -259,7 +259,7 @@ export default function HomeView({ setCurrentPage }: HomeViewProps) {
                     minHeight="h-72"
                     onClick={() => setCurrentPage('solutions')}
                     front={
-                      <div className="space-y-4 text-left">
+                      <div className="space-y-4 text-left keep-dark-panel rounded-[inherit]">
                         <div className="w-10 h-10 rounded-[12px] bg-[#0B2545] border border-white/20 flex items-center justify-center text-white font-mono text-xs font-bold">
                           0{idx + 1}
                         </div>
@@ -270,7 +270,7 @@ export default function HomeView({ setCurrentPage }: HomeViewProps) {
                       </div>
                     }
                     back={
-                      <div className="space-y-4 text-left">
+                      <div className="space-y-4 text-left keep-dark-panel rounded-[inherit]">
                         <h3 className="font-sans font-extrabold text-lg text-white tracking-tight border-b border-white/10 pb-2">
                           {sol.title}
                         </h3>
@@ -289,7 +289,7 @@ export default function HomeView({ setCurrentPage }: HomeViewProps) {
                 {/* Mobile Direct Readable Card (No flip required) */}
                 <div
                   onClick={() => setCurrentPage('solutions')}
-                  className="block md:hidden p-6 rounded-[20px] bg-[#0B2545] border border-white/20 space-y-3 text-left cursor-pointer active:scale-[0.99] transition-transform"
+                  className="block md:hidden p-6 rounded-[20px] bg-[#0B2545] keep-dark-panel border border-white/20 space-y-3 text-left cursor-pointer active:scale-[0.99] transition-transform"
                 >
                   <div className="flex items-center justify-between">
                     <div className="w-8 h-8 rounded-[10px] bg-[#0B2442] border border-white/20 flex items-center justify-center text-white font-mono text-xs font-bold">
@@ -318,7 +318,7 @@ export default function HomeView({ setCurrentPage }: HomeViewProps) {
       <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-[#0B2442]/20 border-b border-white/5">
         <div className="max-w-5xl mx-auto">
           <ScrollFadeIn>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-br from-[#0B2545]/80 via-[#051329]/80 to-[#010610]/80 rounded-[20px] p-8 sm:p-12 border border-white/10 text-left relative overflow-hidden shadow-xl">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-br from-[#0B2545]/80 via-[#051329]/80 to-[#010610]/80 keep-dark-panel rounded-[20px] p-8 sm:p-12 border border-white/10 text-left relative overflow-hidden shadow-xl">
               <div className="lg:col-span-7 space-y-4">
                 <h3 className="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-tight leading-snug">
                   Targeted Intelligence for Strategic Growth
@@ -376,7 +376,7 @@ export default function HomeView({ setCurrentPage }: HomeViewProps) {
                 variants={fadeInUpItemVariants}
                 whileHover={{ y: -6, scale: 1.01 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="p-8 rounded-[20px] bg-[#0B2545] border border-white/20 hover:border-white/50 hover:bg-[#0E2E54] transition-all duration-300 shadow-xl flex flex-col justify-between text-left group relative z-10"
+                className="p-8 rounded-[20px] bg-[#0B2545] keep-dark-panel border border-white/20 hover:border-white/50 hover:bg-[#0E2E54] transition-all duration-300 shadow-xl flex flex-col justify-between text-left group relative z-10"
               >
                 <div className="space-y-4">
                   <div className="w-10 h-10 rounded-[12px] bg-[#0B2442] border border-white/20 flex items-center justify-center text-white font-mono text-xs font-bold group-hover:scale-110 transition-transform">

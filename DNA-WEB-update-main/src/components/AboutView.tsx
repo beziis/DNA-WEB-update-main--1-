@@ -99,7 +99,7 @@ export default function AboutView({ setCurrentPage }: AboutViewProps) {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 max-w-5xl mx-auto">
               {/* Vision */}
-              <motion.div variants={fadeInUpItemVariants} className="p-5 sm:p-6 rounded-xl bg-[#0B2442] border border-white/20 flex space-x-3 sm:space-x-4">
+              <motion.div variants={fadeInUpItemVariants} className="p-5 sm:p-6 rounded-xl bg-[#0B2442] keep-dark-panel border border-white/20 flex space-x-3 sm:space-x-4">
                 <div className="flex-shrink-0 mt-1">
                   <Target className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
@@ -112,7 +112,7 @@ export default function AboutView({ setCurrentPage }: AboutViewProps) {
               </motion.div>
 
               {/* Mission */}
-              <motion.div variants={fadeInUpItemVariants} className="p-5 sm:p-6 rounded-xl bg-[#0B2442] border border-white/20 flex space-x-3 sm:space-x-4">
+              <motion.div variants={fadeInUpItemVariants} className="p-5 sm:p-6 rounded-xl bg-[#0B2442] keep-dark-panel border border-white/20 flex space-x-3 sm:space-x-4">
                 <div className="flex-shrink-0 mt-1">
                   <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
@@ -154,7 +154,7 @@ export default function AboutView({ setCurrentPage }: AboutViewProps) {
                 variants={fadeInUpItemVariants}
                 whileHover={{ y: -6, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="team-card p-5 sm:p-6 rounded-xl bg-[#0B2545] border border-white/20 text-center flex flex-col justify-between hover:border-white/50 hover:bg-[#0E2E54] transition-all duration-300 shadow-xl group card-hover-lift cursor-pointer"
+                className="team-card p-5 sm:p-6 rounded-xl bg-[#0B2545] keep-dark-panel border border-white/20 text-center flex flex-col justify-between hover:border-white/50 hover:bg-[#0E2E54] transition-all duration-300 shadow-xl group card-hover-lift cursor-pointer"
               >
                 <div>
                   <div className="relative w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden border-2 border-white/20 shadow-md mb-4 sm:mb-6 flex items-center justify-center bg-[#0B2442] font-sans font-extrabold text-xl text-white/40">
@@ -184,7 +184,7 @@ export default function AboutView({ setCurrentPage }: AboutViewProps) {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="team-card p-5 rounded-xl bg-[#0B2545] border border-white/20 text-center relative shadow-lg"
+              className="team-card p-5 rounded-xl bg-[#0B2545] keep-dark-panel border border-white/20 text-center relative shadow-lg"
             >
               <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-white/20 shadow-md mb-3 flex items-center justify-center bg-[#0B2442]">
                 <LazyImage
@@ -255,7 +255,7 @@ export default function AboutView({ setCurrentPage }: AboutViewProps) {
                 variants={fadeInUpItemVariants}
                 whileHover={{ y: -6, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="team-card p-5 sm:p-6 rounded-xl bg-[#0B2545] border border-white/20 text-center flex flex-col justify-between hover:border-white/50 hover:bg-[#0E2E54] transition-all duration-300 shadow-xl group card-hover-lift cursor-pointer"
+                className="team-card p-5 sm:p-6 rounded-xl bg-[#0B2545] keep-dark-panel border border-white/20 text-center flex flex-col justify-between hover:border-white/50 hover:bg-[#0E2E54] transition-all duration-300 shadow-xl group card-hover-lift cursor-pointer"
               >
                 <div>
                   <div className="relative w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden border-2 border-white/20 shadow-md mb-4 sm:mb-6 flex items-center justify-center bg-[#0B2442] font-sans font-extrabold text-xl text-white/40">
@@ -285,7 +285,7 @@ export default function AboutView({ setCurrentPage }: AboutViewProps) {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="team-card p-5 rounded-xl bg-[#0B2545] border border-white/20 text-center relative shadow-lg"
+              className="team-card p-5 rounded-xl bg-[#0B2545] keep-dark-panel border border-white/20 text-center relative shadow-lg"
             >
               <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-white/20 shadow-md mb-3 flex items-center justify-center bg-[#0B2442]">
                 <LazyImage
@@ -346,7 +346,7 @@ export default function AboutView({ setCurrentPage }: AboutViewProps) {
             {galleryImages.map((item) => (
               <div
                 key={item.id}
-                className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0B2545] border border-white/15 hover:border-white/50 transition-all duration-300 shadow-xl flex flex-col justify-between"
+                className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0B2545] keep-dark-panel border border-white/15 hover:border-white/50 transition-all duration-300 shadow-xl flex flex-col justify-between"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#010610]">
                   <LazyImage

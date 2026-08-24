@@ -9,6 +9,17 @@ import DataScrollBackground from './DataScrollBackground';
 import LazyImage from './LazyImage';
 
 export default function TractionView() {
+  const [isLight, setIsLight] = React.useState(false);
+
+  React.useEffect(() => {
+    const root = document.documentElement;
+    const syncTheme = () => setIsLight(root.classList.contains('light'));
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(root, { attributes: true, attributeFilter: ['class'] });
+    syncTheme();
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div id="traction-page" className="bg-transparent text-white min-h-screen py-16 relative overflow-hidden font-sans text-left">
       {/* Background Interactive Particle Network & Data Nodes */}
@@ -32,7 +43,7 @@ export default function TractionView() {
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative p-8 sm:p-12 rounded-2xl bg-[#0B2545]/80 border border-white/10 shadow-xl text-center mb-16 overflow-hidden backdrop-blur-md"
+          className="relative p-8 sm:p-12 rounded-2xl bg-[#0B2545]/80 keep-dark-panel border border-white/10 shadow-xl text-center mb-16 overflow-hidden backdrop-blur-md"
         >
           {/* Header background banner image */}
           <div className="absolute inset-0 z-0 opacity-45 pointer-events-none">
@@ -69,7 +80,7 @@ export default function TractionView() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="portfolio-card p-8 rounded-2xl bg-[#0B2545]/50 border border-white/10 shadow-xl mb-12"
+            className="portfolio-card p-8 rounded-2xl bg-[#0B2545]/50 keep-dark-panel border border-white/10 shadow-xl mb-12"
           >
             <p className="font-sans font-extralight text-sm sm:text-base text-white/85 leading-relaxed tracking-wide">
               {tractionData.description}
@@ -86,7 +97,7 @@ export default function TractionView() {
                 whileHover={{ y: -8, scale: 1.03 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.09, ease: [0.22, 1, 0.36, 1] }}
-                className="portfolio-card p-8 rounded-2xl bg-[#0B2545]/60 border border-white/10 text-center shadow-xl hover:border-white transition-colors cursor-pointer backdrop-blur-sm"
+                className="portfolio-card p-8 rounded-2xl bg-[#0B2545]/60 keep-dark-panel border border-white/10 text-center shadow-xl hover:border-white transition-colors cursor-pointer backdrop-blur-sm"
               >
                 <div className="text-4xl sm:text-5xl font-sans font-extrabold text-white mb-2 tracking-tight">
                   {stat.percentage}
@@ -104,7 +115,7 @@ export default function TractionView() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="portfolio-card p-8 rounded-2xl bg-[#0B2545]/40 border border-white/10 shadow-xl mb-16"
+            className="portfolio-card p-8 rounded-2xl bg-[#0B2545]/40 keep-dark-panel border border-white/10 shadow-xl mb-16"
           >
             <div className="flex items-center justify-between mb-6">
               <div>
@@ -117,28 +128,30 @@ export default function TractionView() {
             <div className="h-72 w-full pt-4">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={tractionData.chartData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.08)" />
-                  <XAxis dataKey="year" stroke="rgba(255,255,255,0.6)" fontSize={12} />
-                  <YAxis stroke="rgba(255,255,255,0.6)" fontSize={12} />
+                  <CartesianGrid strokeDasharray="3 3" stroke={isLight ? 'rgba(11,36,66,0.15)' : 'rgba(255,255,255,0.08)'} />
+                  <XAxis dataKey="year" stroke={isLight ? 'rgba(11,36,66,0.7)' : 'rgba(255,255,255,0.6)'} fontSize={12} tickLine={false} />
+                  <YAxis stroke={isLight ? 'rgba(11,36,66,0.7)' : 'rgba(255,255,255,0.6)'} fontSize={12} tickLine={false} axisLine={false} />
                   <Tooltip
-                    contentStyle={{ backgroundColor: '#0B2442', borderColor: 'rgba(255,255,255,0.2)', color: '#fff' }}
+                    contentStyle={{ backgroundColor: isLight ? '#FFFFFF' : '#0B2442', borderColor: isLight ? '#E2E8F0' : 'rgba(255,255,255,0.2)', color: isLight ? '#0F172A' : '#fff' }}
+                    labelStyle={{ color: isLight ? '#0F172A' : '#fff' }}
+                    itemStyle={{ color: isLight ? '#334155' : 'rgba(255,255,255,0.85)' }}
                   />
-                  <Bar dataKey="value1" fill="#FFFFFF" radius={[4, 4, 0, 0]} name="Smart Data Analysis" />
-                  <Bar dataKey="value2" fill="rgba(255,255,255,0.4)" radius={[4, 4, 0, 0]} name="Primary Data Collection" />
+                  <Bar dataKey="value1" fill={isLight ? '#0A2546' : '#FFFFFF'} radius={[4, 4, 0, 0]} name="Smart Data Analysis" />
+                  <Bar dataKey="value2" fill={isLight ? 'rgba(10,37,70,0.4)' : 'rgba(255,255,255,0.4)'} radius={[4, 4, 0, 0]} name="Primary Data Collection" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
           </motion.div>
 
           {/* Repeat Clients Bar */}
-          <div className="p-6 rounded-xl bg-white/5 border border-white/10">
+          <div className="p-6 rounded-xl bg-white/5 keep-dark-panel border border-white/10">
             <h4 className="text-xs font-mono font-bold text-white uppercase tracking-widest mb-4 flex items-center gap-2">
               <Users className="w-4 h-4 text-white" />
               <span>Returning & Repeat Clients</span>
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
               {tractionData.repeatClients.map((client, cIdx) => (
-                <div key={cIdx} className="p-3 rounded-lg bg-[#0B2545]/60 border border-white/10 font-sans font-extrabold text-sm text-white tracking-tight">
+                <div key={cIdx} className="p-3 rounded-lg bg-[#0B2545]/60 keep-dark-panel border border-white/10 font-sans font-extrabold text-sm text-white tracking-tight">
                   {client}
                 </div>
               ))}
@@ -164,7 +177,7 @@ export default function TractionView() {
                 whileHover={{ y: -8, scale: 1.02 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: pIdx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="portfolio-card p-8 rounded-2xl bg-[#0B2545]/40 border border-white/10 hover:border-white transition-colors duration-300 shadow-xl flex flex-col justify-between cursor-pointer backdrop-blur-sm"
+                className="portfolio-card p-8 rounded-2xl bg-[#0B2545]/40 keep-dark-panel border border-white/10 hover:border-white transition-colors duration-300 shadow-xl flex flex-col justify-between cursor-pointer backdrop-blur-sm"
               >
                 <div>
                   <h3 className="font-sans font-extrabold text-xl text-white tracking-tight mb-3">{partner.name}</h3>

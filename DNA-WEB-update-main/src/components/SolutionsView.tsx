@@ -151,7 +151,7 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
         </section>
 
         {/* 1. THE CHALLENGE WE SOLVE */}
-        <section className="solution-card p-8 sm:p-12 rounded-3xl bg-[#0B2545] border border-white/20 shadow-2xl relative overflow-hidden">
+        <section className="solution-card p-8 sm:p-12 rounded-3xl bg-[#0B2545] keep-dark-panel border border-white/20 shadow-2xl relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
               <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-white tracking-tight leading-snug">
@@ -263,7 +263,7 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.3 }}
-              className="solution-card p-8 sm:p-12 rounded-3xl bg-[#0B2545] border border-white/20 shadow-2xl space-y-8"
+              className="solution-card p-8 sm:p-12 rounded-3xl bg-[#0B2545] keep-dark-panel border border-white/20 shadow-2xl space-y-8"
             >
               <div className="border-b border-white/15 pb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
@@ -284,7 +284,7 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
 
               {/* Desktop & Tablet 3-Column Card Layout (768px+) */}
               <div className="hidden md:grid md:grid-cols-3 gap-6 sm:gap-8">
-                <div className="p-6 rounded-2xl bg-[#0B2442] border border-white/20 shadow-xl space-y-2 card-hover-lift">
+                <div className="p-6 rounded-2xl bg-[#0B2442] keep-dark-panel border border-white/20 shadow-xl space-y-2 card-hover-lift">
                   <span className="font-mono text-[10px] text-white/80 uppercase tracking-widest font-bold block">
                     1. The Challenge
                   </span>
@@ -293,7 +293,7 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
                   </p>
                 </div>
 
-                <div className="p-6 rounded-2xl bg-[#0B2442] border border-white/20 shadow-xl space-y-2 card-hover-lift">
+                <div className="p-6 rounded-2xl bg-[#0B2442] keep-dark-panel border border-white/20 shadow-xl space-y-2 card-hover-lift">
                   <span className="font-mono text-[10px] text-white/80 uppercase tracking-widest font-bold block">
                     2. DNA TECH Solution
                   </span>
@@ -302,7 +302,7 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
                   </p>
                 </div>
 
-                <div className="p-6 rounded-2xl bg-[#0B2442] border border-white/20 shadow-xl space-y-2 card-hover-lift">
+                <div className="p-6 rounded-2xl bg-[#0B2442] keep-dark-panel border border-white/20 shadow-xl space-y-2 card-hover-lift">
                   <span className="font-mono text-[10px] text-white/80 uppercase tracking-widest font-bold block">
                     3. Measurable Result
                   </span>
@@ -362,7 +362,7 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
                   <FlipCard
                     minHeight="h-80"
                     front={
-                      <div className="space-y-4 text-left">
+                      <div className="space-y-4 text-left keep-dark-panel rounded-[inherit]">
                         <span className="px-2.5 py-1 rounded-md bg-[#051329] border border-white/10 font-mono text-[10px] uppercase font-bold text-white inline-block">
                           {cs.tag}
                         </span>
@@ -376,7 +376,7 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
                       </div>
                     }
                     back={
-                      <div className="space-y-4 text-left">
+                      <div className="space-y-4 text-left keep-dark-panel rounded-[inherit]">
                         <span className="font-mono text-[10px] text-white/50 uppercase tracking-widest block">KEY HIGHLIGHT</span>
                         <h3 className="font-sans font-extrabold text-lg text-white border-b border-white/10 pb-2 tracking-tight">
                           {cs.title}
@@ -394,7 +394,7 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
                 </div>
 
                 {/* Mobile Direct Readable Card (No 3D flip required) */}
-                <div className="block md:hidden p-5 rounded-2xl bg-[#0B2545] border border-white/20 space-y-3 text-left shadow-md">
+                <div className="block md:hidden p-5 rounded-2xl bg-[#0B2545] keep-dark-panel border border-white/20 space-y-3 text-left shadow-md">
                   <div className="flex items-center justify-between">
                     <span className="px-2.5 py-1 rounded-md bg-[#051329] border border-white/10 font-mono text-[9px] uppercase font-bold text-white inline-block">
                       {cs.tag}
@@ -417,7 +417,7 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
         </section>
 
         {/* 4. DASHBOARD & VISUALIZATION DEMO */}
-        <section className="p-8 sm:p-12 rounded-3xl bg-[#0B2545] border border-white/15 shadow-2xl relative overflow-hidden">
+        <section className="p-8 sm:p-12 rounded-3xl bg-[#0B2545] keep-dark-panel border border-white/15 shadow-2xl relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-5 space-y-4 text-left">
               <span className="font-mono text-xs uppercase tracking-widest text-white/60 font-bold block">
@@ -445,7 +445,7 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
               </ul>
             </div>
 
-            <div className="lg:col-span-7 p-6 rounded-2xl bg-[#010610] border border-white/15 shadow-inner space-y-4">
+            <div className="lg:col-span-7 p-6 rounded-2xl bg-[#010610] keep-dark-panel border border-white/15 shadow-inner space-y-4">
               <div className="flex items-center justify-between border-b border-white/10 pb-3">
                 <span className="font-mono text-xs text-white font-bold flex items-center space-x-2">
                   <Activity className="w-4 h-4 text-white animate-pulse" />
@@ -485,7 +485,7 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
 
 
         {/* 7. FINAL CTA */}
-        <section className="rounded-3xl bg-[#0B2442] border border-white/15 p-10 sm:p-16 text-center space-y-6 relative overflow-hidden shadow-2xl">
+        <section className="rounded-3xl bg-[#0B2442] keep-dark-panel border border-white/15 p-10 sm:p-16 text-center space-y-6 relative overflow-hidden shadow-2xl">
           <h2 className="font-sans font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-snug">
             Let's Solve Your Next Challenge Together
           </h2>

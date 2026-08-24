@@ -200,6 +200,48 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
+   0. TEXT NORMALIZATION FOR LIGHT SURFACES (zero-specificity :where)
+      Components hardcode `text-white` for the dark design. On light surfaces
+      those become invisible. These rules use :where() so ANY Tailwind utility,
+      component class, or explicit style still wins — they only act as a safe
+      fallback. Surfaces that intentionally stay dark are marked with
+      `.keep-dark-panel`, which opts their subtree out of the fallback.
+   -------------------------------------------------------------------------- */
+.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(h1, h2, h3, h4):not(.keep-dark-panel *, .hero-section *) {
+  color: #0B2442;
+}
+
+.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(p, li, span, a, label, address):not(.keep-dark-panel *, .hero-section *) {
+  color: #334155;
+}
+
+/* Muted/opacity utility text on light surfaces */
+.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where([class*="text-white/"]):not(.keep-dark-panel *, .hero-section *) {
+  color: #64748B;
+}
+
+/* --------------------------------------------------------------------------
+   KEEP-DARK PANELS — surfaces that stay DARK in both themes.
+   Inside them white text remains white (mirrors the dark master design).
+   -------------------------------------------------------------------------- */
+.light .keep-dark-panel {
+  background-color: #0B2545;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.light .keep-dark-panel :where(h1, h2, h3, h4) {
+  color: #FFFFFF;
+}
+
+.light .keep-dark-panel :where(p, li, span, a, address, div) {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.light .keep-dark-panel :where(svg) {
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
    1. HERO — intentionally stays DARK in both themes (dark design = master).
       Only the frosted hero summary card is translated to white glass.
    -------------------------------------------------------------------------- */
