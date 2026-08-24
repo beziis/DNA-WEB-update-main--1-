@@ -1,0 +1,754 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+/* Project design tokens. Kept as standard CSS custom properties so editors
+   do not flag Tailwind's non-standard @theme at-rule. */
+:root {
+  --font-sans: "Good Times", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Good Times", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy-800: #0B2442;
+  --color-navy-900: #051329;
+  --color-navy-950: #020914;
+
+  /* Theme Color Variables */
+  --background: #051329;
+  --foreground: #F8FAFC;
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --text-muted: rgba(255, 255, 255, 0.6);
+}
+
+.light {
+  color-scheme: light;
+
+  --background: #FFFFFF;
+  --foreground: #0B2442;
+  --text-primary: #0B2442;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+}
+
+/* Base Body & Reset Defaults */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  font-kerning: normal;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.015em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p,
+li,
+td,
+th {
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+/* Headings: Good Times / DM Sans ExtraBold (800) Hierarchy & Precision Tracking */
+h1,
+.h1 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h2,
+.h2 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.028em;
+  line-height: 1.18;
+  text-wrap: balance;
+}
+
+h3,
+.h3 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+h4,
+.h4 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.012em;
+  line-height: 1.35;
+}
+
+/* Specialized Tracking Classes for High Precision Typography */
+.tracking-label-caps {
+  letter-spacing: 0.12em;
+}
+
+.tracking-mono-code {
+  letter-spacing: 0.04em;
+}
+
+.tracking-body-airy {
+  letter-spacing: 0.018em;
+  line-height: 1.72;
+}
+
+/* Render Performance Utilities for Speed Optimization */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 400px;
+}
+
+.gpu-layer {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Card Hover Lift Interactivity Utility */
+.card-hover-lift {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.4), 0 0 24px -4px rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.light .card-hover-lift:hover {
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.12), 0 0 16px -2px rgba(11, 36, 66, 0.06);
+  border-color: rgba(11, 36, 66, 0.25);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #051329;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+/* Selection Color */
+::selection {
+  background-color: #38BDF8;
+  color: #0F172A;
+}
+
+/* Transitions */
+button,
+a,
+input,
+select,
+textarea {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* ==========================================================================
+   LIGHT THEME
+   Clean mirror of the dark design system. Only color/material changes.
+   No global element selectors, no wildcard overrides, minimal !important.
+   ========================================================================== */
+
+.light body,
+.light #root {
+  background-color: #FFFFFF;
+  color: #0B2442;
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO — intentionally stays DARK in both themes (dark design = master).
+      Only the frosted hero summary card is translated to white glass.
+   -------------------------------------------------------------------------- */
+.light .hero-section .hero-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 12px 32px rgba(255, 255, 255, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.light .hero-section .hero-card h3,
+.light .hero-section .hero-card h4,
+.light .hero-section .hero-card .hero-title {
+  color: #0B2442;
+}
+
+.light .hero-section .hero-card p,
+.light .hero-section .hero-card span {
+  color: #334155;
+}
+
+.light .hero-section .hero-card-subitem {
+  background-color: rgba(248, 250, 252, 0.90);
+  border-color: rgba(11, 36, 66, 0.12);
+}
+
+.light .hero-section .hero-card-subitem p,
+.light .hero-section .hero-card-subitem span,
+.light .hero-section .hero-card-subitem div {
+  color: #0B2442;
+}
+
+.light .hero-section .hero-primary-btn {
+  background-color: #FFFFFF;
+  color: #0B2442;
+}
+
+.light .hero-section .hero-secondary-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+}
+
+/* Technical Grid Pattern */
+.technical-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.75;
+}
+
+.light .technical-grid {
+  background-image:
+    linear-gradient(to right, rgba(11, 36, 66, 0.10) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 36, 66, 0.10) 1px, transparent 1px);
+}
+
+/* --------------------------------------------------------------------------
+   2. UNIFIED FROSTED GLASS & SEMANTIC COMPONENT CARDS
+      Dark: translucent navy glass → Light: translucent white glass.
+   -------------------------------------------------------------------------- */
+.glass-card {
+  background: rgba(11, 37, 69, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.35);
+}
+
+.light .glass-card,
+.light .service-card,
+.light .testimonial-card,
+.light .team-card,
+.light .portfolio-card,
+.light .solution-card,
+.light .contact-card {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(11, 36, 66, 0.12);
+  box-shadow: 0 12px 35px rgba(10, 37, 70, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+/* Light mode card text hierarchy (headings / body / muted) */
+.light .glass-card h1,
+.light .glass-card h2,
+.light .glass-card h3,
+.light .glass-card h4,
+.light .service-card h1,
+.light .service-card h2,
+.light .service-card h3,
+.light .service-card h4,
+.light .testimonial-card h1,
+.light .testimonial-card h2,
+.light .testimonial-card h3,
+.light .testimonial-card h4,
+.light .team-card h1,
+.light .team-card h2,
+.light .team-card h3,
+.light .team-card h4,
+.light .portfolio-card h1,
+.light .portfolio-card h2,
+.light .portfolio-card h3,
+.light .portfolio-card h4,
+.light .solution-card h1,
+.light .solution-card h2,
+.light .solution-card h3,
+.light .solution-card h4,
+.light .contact-card h1,
+.light .contact-card h2,
+.light .contact-card h3,
+.light .contact-card h4 {
+  color: #0B2442;
+}
+
+.light .glass-card p,
+.light .glass-card li,
+.light .glass-card span,
+.light .service-card p,
+.light .service-card li,
+.light .service-card span,
+.light .testimonial-card p,
+.light .testimonial-card li,
+.light .testimonial-card span,
+.light .team-card p,
+.light .team-card li,
+.light .team-card span,
+.light .portfolio-card p,
+.light .portfolio-card li,
+.light .portfolio-card span,
+.light .solution-card p,
+.light .solution-card li,
+.light .solution-card span,
+.light .contact-card p,
+.light .contact-card li,
+.light .contact-card span {
+  color: #334155;
+}
+
+.light .glass-card .text-muted,
+.light .service-card .text-muted,
+.light .testimonial-card .text-muted,
+.light .team-card .text-muted,
+.light .portfolio-card .text-muted,
+.light .solution-card .text-muted,
+.light .contact-card .text-muted {
+  color: #64748B;
+}
+
+.light .glass-card:hover,
+.light .service-card:hover,
+.light .testimonial-card:hover,
+.light .team-card:hover,
+.light .portfolio-card:hover,
+.light .solution-card:hover,
+.light .contact-card:hover {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(11, 36, 66, 0.22);
+  box-shadow: 0 16px 40px rgba(10, 37, 70, 0.12), inset 0 1px 0 #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   3. PROCESS SECTION
+   -------------------------------------------------------------------------- */
+.light #process-timeline-section h2 {
+  color: #0B2442;
+}
+
+.light #process-timeline-section .process-stage-card {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(11, 36, 66, 0.12);
+  box-shadow: 0 12px 35px rgba(10, 37, 70, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.light #process-timeline-section .process-stage-card h3 {
+  color: #0B2442;
+}
+
+.light #process-timeline-section .process-stage-card p {
+  color: #334155;
+}
+
+/* Active stage stays DARK (mirrors dark theme's active state) → white text */
+.light #process-timeline-section .process-stage-selector.is-active {
+  background-color: #0A2546;
+}
+
+.light .process-stage-card [class*="via-white"] {
+  background-image: linear-gradient(to right, transparent, #0A2546, transparent);
+}
+
+.light span.animate-pulse {
+  background-color: #0A2546;
+}
+
+/* --------------------------------------------------------------------------
+   4. FOCUS VISIBILITY (accessibility only — no global hover repaints)
+   -------------------------------------------------------------------------- */
+.light button:focus-visible,
+.light a:focus-visible,
+.light input:focus-visible,
+.light textarea:focus-visible {
+  outline: 3px solid rgba(11, 36, 66, 0.12);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   5. FORMS — frosted white inputs with dark text
+   -------------------------------------------------------------------------- */
+.light input,
+.light select,
+.light textarea {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #0F172A;
+  border: 1px solid rgba(11, 36, 66, 0.18);
+}
+
+.light input:focus,
+.light select:focus,
+.light textarea:focus {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #0A2546;
+  box-shadow: 0 0 0 3px rgba(10, 37, 70, 0.12);
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #64748B;
+}
+
+/* --------------------------------------------------------------------------
+   6. CTA BUTTONS — component-specific only.
+      .keep-dark-cta is intentionally dark in both themes → white text.
+   -------------------------------------------------------------------------- */
+.light .keep-dark-cta {
+  background-color: #0A2546;
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   7. RECHARTS & DATA TOOLTIPS
+   -------------------------------------------------------------------------- */
+.light .recharts-default-tooltip {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  color: #0F172A;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.light .recharts-tooltip-item {
+  color: #0F172A;
+}
+
+.light .recharts-cartesian-grid line {
+  stroke: #E2E8F0;
+}
+
+.light .recharts-text,
+.light .recharts-label,
+.light .recharts-legend-item-text {
+  fill: #475569;
+  color: #475569;
+}
+
+/* Floating Abstract Data Blob Animation */
+@keyframes data-blob-float-1 {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+
+  33% {
+    border-radius: 30% 60% 70% 30% / 50% 60% 30% 60%;
+    transform: translate(25px, -30px) rotate(120deg) scale(1.08);
+  }
+
+  66% {
+    border-radius: 70% 30% 50% 50% / 30% 40% 60% 70%;
+    transform: translate(-15px, 20px) rotate(240deg) scale(0.92);
+  }
+
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: translate(0px, 0px) rotate(360deg) scale(1);
+  }
+}
+
+@keyframes data-blob-float-2 {
+  0% {
+    border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+
+  50% {
+    border-radius: 70% 30% 40% 60% / 30% 70% 40% 60%;
+    transform: translate(-25px, 25px) rotate(-180deg) scale(1.12);
+  }
+
+  100% {
+    border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+    transform: translate(0px, 0px) rotate(-360deg) scale(1);
+  }
+}
+
+.animate-data-blob-1 {
+  animation: data-blob-float-1 22s infinite ease-in-out;
+  will-change: transform, border-radius;
+}
+
+.animate-data-blob-2 {
+  animation: data-blob-float-2 28s infinite ease-in-out;
+  will-change: transform, border-radius;
+}
+
+/* Animations */
+@keyframes pulse-subtle {
+
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s infinite ease-in-out;
+}
+
+/* CSS-based Entry & Stagger Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUpSubtle {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.45s ease-out both;
+}
+
+.animate-scale-up {
+  animation: scaleUpSubtle 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Stagger Utilities */
+.stagger-1 {
+  animation-delay: 70ms;
+}
+
+.stagger-2 {
+  animation-delay: 140ms;
+}
+
+.stagger-3 {
+  animation-delay: 210ms;
+}
+
+.stagger-4 {
+  animation-delay: 280ms;
+}
+
+.stagger-5 {
+  animation-delay: 350ms;
+}
+
+.stagger-6 {
+  animation-delay: 420ms;
+}
+
+.stagger-7 {
+  animation-delay: 490ms;
+}
+
+.stagger-8 {
+  animation-delay: 560ms;
+}
+
+/* CSS Clip-Path Image Reveal Transitions */
+.clip-reveal-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.clip-reveal-center {
+  clip-path: inset(10% 8% 10% 8% round 16px);
+  opacity: 0.15;
+  transform: scale(1.06);
+  transition: clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.75s ease-out, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: clip-path, opacity, transform;
+}
+
+.clip-reveal-center.clip-loaded {
+  clip-path: inset(0% 0% 0% 0% round 0px);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.clip-reveal-left {
+  clip-path: inset(0 100% 0 0);
+  opacity: 0.1;
+  transform: scale(1.04);
+  transition: clip-path 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease-out, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: clip-path, opacity, transform;
+}
+
+.clip-reveal-left.clip-loaded {
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.clip-reveal-polygon {
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  opacity: 0.2;
+  transition: clip-path 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease-out;
+  will-change: clip-path, opacity;
+}
+
+.clip-reveal-polygon.clip-loaded {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  opacity: 1;
+}
+
+.clip-reveal-circle {
+  clip-path: circle(8% at 50% 50%);
+  opacity: 0.2;
+  transition: clip-path 0.95s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.75s ease-out;
+  will-change: clip-path, opacity;
+}
+
+.clip-reveal-circle.clip-loaded {
+  clip-path: circle(150% at 50% 50%);
+  opacity: 1;
+}
+
+/* Partner Logo Marquee Keyframes & Responsive Controls */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 22s linear infinite;
+  will-change: transform;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .animate-marquee {
+    animation-duration: 30s;
+  }
+}
+
+@media (max-width: 767px) {
+  .animate-marquee {
+    animation-duration: 38s;
+  }
+}
+
+.partner-marquee-container:hover .animate-marquee,
+.partner-marquee-container:focus-within .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Motion reduction for users/devices with prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-marquee,
+  .animate-data-blob-1,
+  .animate-data-blob-2,
+  .animate-pulse-subtle {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Partner Logo Marquee Strip Fades */
+.partner-marquee-edge-left {
+  background: linear-gradient(to right, #051329 0%, transparent 100%);
+}
+
+.partner-marquee-edge-right {
+  background: linear-gradient(to left, #051329 0%, transparent 100%);
+}
+
+.light .partner-marquee-edge-left {
+  background: linear-gradient(to right, #F8FAFC 0%, transparent 100%);
+}
+
+.light .partner-marquee-edge-right {
+  background: linear-gradient(to left, #F8FAFC 0%, transparent 100%);
+}
+
+.light .partner-marquee-section {
+  background-color: rgba(15, 23, 42, 0.02);
+  border-color: #E2E8F0;
+}
