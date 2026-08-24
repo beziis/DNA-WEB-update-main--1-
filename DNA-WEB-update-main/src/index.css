@@ -204,40 +204,76 @@ textarea {
       Components hardcode `text-white` for the dark design. On light surfaces
       those become invisible. These rules use :where() so ANY Tailwind utility,
       component class, or explicit style still wins — they only act as a safe
-      fallback. Surfaces that intentionally stay dark are marked with
-      `.keep-dark-panel`, which opts their subtree out of the fallback.
+      fallback. The hero intentionally stays dark and is excluded.
    -------------------------------------------------------------------------- */
-.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(h1, h2, h3, h4):not(.keep-dark-panel *, .hero-section *) {
+.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(h1, h2, h3, h4):not(.hero-section *) {
   color: #0B2442;
 }
 
-.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(p, li, span, a, label, address):not(.keep-dark-panel *, .hero-section *) {
+.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(p, li, span, a, label, address):not(.hero-section *) {
   color: #334155;
 }
 
 /* Muted/opacity utility text on light surfaces */
-.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where([class*="text-white/"]):not(.keep-dark-panel *, .hero-section *) {
+.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where([class*="text-white/"]):not(.hero-section *) {
   color: #64748B;
 }
 
 /* --------------------------------------------------------------------------
-   KEEP-DARK PANELS — surfaces that stay DARK in both themes.
-   Inside them white text remains white (mirrors the dark master design).
+   PANELS MARKED .keep-dark-panel — in LIGHT mode these become WHITE FROSTED
+   GLASS (mirroring the dark theme's translucent navy glass material), NOT
+   opaque navy cards. Text inside flips to the dark high-contrast palette.
    -------------------------------------------------------------------------- */
 .light .keep-dark-panel {
-  background-color: #0B2545;
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.62);
+  background-color: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: rgba(11, 36, 66, 0.12);
+  box-shadow: 0 12px 35px rgba(10, 37, 70, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
+.light .keep-dark-panel:hover {
+  background: rgba(255, 255, 255, 0.72);
+  background-color: rgba(255, 255, 255, 0.72);
+  border-color: rgba(11, 36, 66, 0.22);
+}
+
+/* Dark high-contrast text inside white-glass panels (beats text-white utilities) */
 .light .keep-dark-panel :where(h1, h2, h3, h4) {
-  color: #FFFFFF;
+  color: #0B2442;
 }
 
-.light .keep-dark-panel :where(p, li, span, a, address, div) {
-  color: rgba(255, 255, 255, 0.85);
+.light .keep-dark-panel :where(p, li, span, a, label, address, div) {
+  color: #334155;
+}
+
+.light .keep-dark-panel :where([class*="text-white/"]) {
+  color: #64748B;
 }
 
 .light .keep-dark-panel :where(svg) {
+  color: #0B2442;
+}
+
+.light .keep-dark-panel :where([class*="border-white"]) {
+  border-color: rgba(11, 36, 66, 0.12);
+}
+
+/* Inner accent tiles inside panels (icon boxes, chips, mini-stat tiles):
+   dark navy fills become soft white glass so they don't read as navy cards */
+.light .keep-dark-panel :where([class*="bg-[#0B2442]"], [class*="bg-[#0B2545]"], [class*="bg-[#051329]"], [class*="bg-[#010610]"]) {
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+/* White-on-navy buttons/chips that sit on now-light surfaces flip to navy-on-white */
+.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a):not(.hero-section *, .keep-dark-cta) {
+  color: #0B2442;
+}
+
+/* Buttons/chips with explicit navy fills keep white text (they stay dark pills) */
+.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a)[class*="bg-[#0B2442]"]:not(.keep-dark-cta),
+.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a)[class*="bg-slate-900"]:not(.keep-dark-cta) {
   color: #FFFFFF;
 }
 

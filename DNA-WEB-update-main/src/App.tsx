@@ -125,7 +125,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-[#051329] min-h-screen text-white flex flex-col justify-between selection:bg-white selection:text-[#0B2442] font-sans antialiased">
+    <div className="bg-[#051329] [.light_&]:bg-white min-h-screen text-white [.light_&]:text-[#0B2442] flex flex-col justify-between selection:bg-white selection:text-[#0B2442] font-sans antialiased">
       <div>
         {/* Navigation bar Header */}
         <Navbar
