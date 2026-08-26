@@ -196,8 +196,8 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
                   onClick={() => setSelectedIndustry(idx)}
                   className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                     selectedIndustry === idx
-                      ? 'bg-white text-[#0B2442] shadow-md'
-                      : 'bg-[#0B2442] text-white/80 hover:text-white hover:bg-white/15 border border-white/20'
+                      ? 'bg-white text-[#0B2442] shadow-md border border-white [.light_&]:bg-[#0B2442] [.light_&]:text-white [.light_&]:border-[#0B2442]'
+                      : 'bg-[#0B2442] text-white/80 hover:text-white hover:bg-white/15 border border-white/20 [.light_&]:bg-white/90 [.light_&]:text-slate-700 [.light_&]:border-slate-200 [.light_&]:hover:bg-slate-100 [.light_&]:hover:text-[#0B2442]'
                   }`}
                 >
                   <IndIcon className="w-4 h-4" />
@@ -217,8 +217,8 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
                   onClick={() => setSelectedIndustry(idx)}
                   className={`flex items-center justify-between p-3.5 rounded-xl font-mono text-xs font-bold transition-all min-h-[44px] cursor-pointer text-left ${
                     selectedIndustry === idx
-                      ? 'bg-white text-[#0B2442] shadow-md border-l-4 border-[#0B2442]'
-                      : 'bg-[#0B2442] text-white/80 hover:bg-white/10 border border-white/15'
+                      ? 'bg-white text-[#0B2442] shadow-md border-l-4 border-[#0B2442] [.light_&]:bg-[#0B2442] [.light_&]:text-white [.light_&]:border-l-4 [.light_&]:border-[#0284C7]'
+                      : 'bg-[#0B2442] text-white/80 hover:bg-white/10 border border-white/15 [.light_&]:bg-white/90 [.light_&]:text-slate-700 [.light_&]:border-slate-200 [.light_&]:hover:bg-slate-100 [.light_&]:hover:text-[#0B2442]'
                   }`}
                 >
                   <div className="flex items-center space-x-3 truncate">
@@ -241,8 +241,8 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
                   onClick={() => setSelectedIndustry(idx)}
                   className={`w-full flex items-center justify-between p-3.5 rounded-xl font-mono text-xs font-bold transition-all min-h-[44px] cursor-pointer ${
                     selectedIndustry === idx
-                      ? 'bg-white text-[#0B2442] shadow-md border-l-4 border-[#0B2442]'
-                      : 'bg-[#0B2442] text-white/80 hover:bg-white/10 border border-white/15'
+                      ? 'bg-white text-[#0B2442] shadow-md border-l-4 border-[#0B2442] [.light_&]:bg-[#0B2442] [.light_&]:text-white [.light_&]:border-l-4 [.light_&]:border-[#0284C7]'
+                      : 'bg-[#0B2442] text-white/80 hover:bg-white/10 border border-white/15 [.light_&]:bg-white/90 [.light_&]:text-slate-700 [.light_&]:border-slate-200 [.light_&]:hover:bg-slate-100 [.light_&]:hover:text-[#0B2442]'
                   }`}
                 >
                   <div className="flex items-center space-x-3">
