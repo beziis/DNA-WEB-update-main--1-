@@ -133,7 +133,7 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="p-8 sm:p-14 rounded-3xl bg-[#0B2545]/80 border border-white/10 shadow-2xl relative overflow-hidden"
+            className="p-8 sm:p-14 rounded-3xl bg-white/10 backdrop-blur-md border border-white/10 shadow-2xl relative overflow-hidden"
           >
             <h1 className="font-sans font-extrabold text-4xl sm:text-6xl text-white tracking-tight leading-[1.1] mb-6">
               Engineered Solutions for Proven Market Results
