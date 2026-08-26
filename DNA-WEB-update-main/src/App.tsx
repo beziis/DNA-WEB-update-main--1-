@@ -125,33 +125,26 @@ export default function App() {
   };
 
   return (
-    <div className="relative isolate min-h-screen bg-[#051329] [.light_&]:bg-white text-white [.light_&]:text-[#0B2442] flex flex-col justify-between selection:bg-white selection:text-[#0B2442] font-sans antialiased">
-
     <div
-      aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-0 hidden [.light_&]:block"
+      className="min-h-screen flex flex-col relative"
       style={{
-        background: `
-          radial-gradient(
-            circle at 12% 10%,
-            rgba(11, 36, 66, 0.055) 0%,
-            rgba(11, 36, 66, 0.025) 25%,
-            transparent 55%
-          ),
-          radial-gradient(
-            circle at 88% 35%,
-            rgba(11, 36, 66, 0.045) 0%,
-            rgba(11, 36, 66, 0.02) 25%,
-            transparent 58%
-          ),
-          radial-gradient(
-            circle at 45% 90%,
-            rgba(11, 36, 66, 0.035) 0%,
-            transparent 55%
-          )
-        `,
+        background: theme === 'light'
+          ? `
+            radial-gradient(
+              circle at 15% 15%,
+              rgba(11, 36, 66, 0.18),
+              transparent 40%
+            ),
+            radial-gradient(
+              circle at 85% 50%,
+              rgba(11, 36, 66, 0.14),
+              transparent 45%
+            ),
+            #FFFFFF
+          `
+          : '#051329',
       }}
-    />
+>
 
     <div>
       {/* Navigation bar Header */}
