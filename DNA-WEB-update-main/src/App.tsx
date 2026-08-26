@@ -133,12 +133,12 @@ export default function App() {
             radial-gradient(
               circle at 15% 15%,
               rgba(11, 36, 66, 0.18),
-              transparent 40%
+              transparent 70%
             ),
             radial-gradient(
               circle at 85% 50%,
               rgba(11, 36, 66, 0.14),
-              transparent 45%
+              transparent 75%
             ),
             #FFFFFF
           `
