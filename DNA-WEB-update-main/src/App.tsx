@@ -127,11 +127,11 @@ export default function App() {
   return (
     <div className="relative isolate min-h-screen bg-[#051329] [.light_&]:bg-white text-white [.light_&]:text-[#0B2442] flex flex-col justify-between selection:bg-white selection:text-[#0B2442] font-sans antialiased">
 
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed inset-0 -z-10 hidden [.light_&]:block"
-        style={{
-          background: `
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-0 hidden [.light_&]:block"
+      style={{
+        background: `
           radial-gradient(
             circle at 12% 10%,
             rgba(11, 36, 66, 0.055) 0%,
@@ -150,25 +150,25 @@ export default function App() {
             transparent 55%
           )
         `,
-        }}
+      }}
+    />
+
+    <div>
+      {/* Navigation bar Header */}
+      <Navbar
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        theme={theme}
+        toggleTheme={toggleTheme}
       />
 
-      <div>
-        {/* Navigation bar Header */}
-        <Navbar
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          theme={theme}
-          toggleTheme={toggleTheme}
-        />
-
-        {/* Primary Main Content Canvas with Animated Transition Overlay */}
-        <main id="main-canvas" className="overflow-hidden">
-          <PageTransitionOverlay currentPage={currentPage}>
-            {renderView()}
-          </PageTransitionOverlay>
-        </main>
-      </div>
+      {/* Primary Main Content Canvas with Animated Transition Overlay */}
+      <main id="main-canvas" className="overflow-hidden">
+        <PageTransitionOverlay currentPage={currentPage}>
+          {renderView()}
+        </PageTransitionOverlay>
+      </main>
+    </div>
 
       {/* Global Footer component */}
       <Footer currentView={currentPage} setView={setCurrentPage} theme={theme} />
