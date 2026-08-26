@@ -120,7 +120,7 @@ export default function HomeView({ setCurrentPage }: HomeViewProps) {
                 </div>
                 <div className="hero-card-subitem p-2 sm:p-2.5 rounded-[10px] sm:rounded-[12px] bg-[#051329]/70 border border-white/10">
                   <div className="text-sm xs:text-base sm:text-2xl font-sans font-extrabold text-white">
-                    <AnimatedCounter value="1,308+" />
+                    <AnimatedCounter value="5,000+" />
                   </div>
                   <div className="text-[8px] sm:text-[9px] text-white/70 font-mono uppercase tracking-wider mt-0.5">Responses</div>
                 </div>

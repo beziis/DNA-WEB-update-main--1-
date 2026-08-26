@@ -461,7 +461,9 @@ export default function SolutionsView({ setCurrentPage }: SolutionsViewProps) {
                 </div>
                 <div className="p-3 rounded-xl bg-[#0B2442] border border-white/10">
                   <div className="text-xs text-white/60 font-mono">Community Responses</div>
-                  <div className="text-xl font-sans font-extrabold text-white mt-1 tracking-tight">1,308</div>
+                  <div className="text-xl font-sans font-extrabold text-white mt-1 tracking-tight">5,000
+                  
+                  </div>
                 </div>
                 <div className="p-3 rounded-xl bg-[#0B2442] border border-white/10">
                   <div className="text-xs text-white/60 font-mono">Accuracy Score</div>
