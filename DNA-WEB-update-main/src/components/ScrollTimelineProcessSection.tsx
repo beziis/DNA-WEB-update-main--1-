@@ -88,7 +88,7 @@ const StageNodeButton: React.FC<StageNodeButtonProps> = ({
     ? {
       scale: isCurrent ? 1.12 : 0.9,
       borderColor: isLight ? '#0A2546' : isCurrent ? '#FFFFFF' : 'rgba(255,255,255,0.3)',
-      backgroundColor: isLight ? (isCurrent ? '#FFFFFF' : '#EAF0F7') : isCurrent ? '#FFFFFF' : '#0B2545',
+      backgroundColor: isLight ? '#FFFFFF' : isCurrent ? '#FFFFFF' : '#0B2545',
     }
     : {
       scale: isCurrent ? 1.25 : 0.95,
@@ -96,7 +96,7 @@ const StageNodeButton: React.FC<StageNodeButtonProps> = ({
         ? isCurrent ? '#0A2546' : 'rgba(10,37,70,0.35)'
         : isCurrent ? '#FFFFFF' : isPassed ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.2)',
       backgroundColor: isLight
-        ? isCurrent ? '#FFFFFF' : isPassed ? '#EAF0F7' : '#F1F5F9'
+        ? '#FFFFFF'
         : isCurrent ? '#FFFFFF' : isPassed ? '#0B2545' : '#051329',
       boxShadow: isCurrent ? (isLight ? '0 0 24px rgba(10,37,70,0.2)' : '0 0 30px rgba(255,255,255,0.6)') : 'none',
     };
@@ -159,7 +159,7 @@ const StageCardItem: React.FC<StageCardItemProps> = ({
               ? isCurrent ? 'rgba(10, 37, 70, 0.45)' : isPassed ? 'rgba(10, 37, 70, 0.28)' : 'rgba(10, 37, 70, 0.16)'
               : isCurrent ? 'rgba(255, 255, 255, 0.9)' : isPassed ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.1)',
             backgroundColor: isLight
-              ? isCurrent ? 'rgba(255, 255, 255, 0.96)' : isPassed ? 'rgba(248, 250, 252, 0.9)' : 'rgba(241, 245, 249, 0.82)'
+              ? isCurrent ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.78)'
               : isCurrent ? 'rgba(11, 37, 69, 0.75)' : isPassed ? 'rgba(11, 37, 69, 0.35)' : 'rgba(11, 37, 69, 0.15)'
           }}
           transition={{ duration: 0.35, ease: 'easeOut' }}
@@ -318,11 +318,11 @@ export default function ScrollTimelineProcessSection() {
   return (
     <section
       ref={sectionRef}
-      className={`py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden text-left border-b transition-colors duration-300 ${isLight ? 'bg-slate-50/50 border-slate-200' : 'bg-[#051329]/20 border-white/10'}`}
+      className={`py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden text-left border-b transition-colors duration-300 ${isLight ? 'bg-transparent border-slate-200' : 'bg-[#051329]/20 border-white/10'}`}
       id="process-timeline-section"
     >
       {/* Background Ambient Spotlight */}
-      <div className={`absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full pointer-events-none ${isLight ? 'bg-radial from-[#0284C7]/12 to-transparent opacity-45' : 'bg-radial from-[#0B2545]/20 to-transparent opacity-30'}`} />
+      <div className={`absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full pointer-events-none ${isLight ? 'bg-radial from-[#0B2442]/[0.035] to-transparent opacity-40' : 'bg-radial from-[#0B2545]/20 to-transparent opacity-30'}`} />
 
       <div className="max-w-6xl mx-auto relative z-10">
 

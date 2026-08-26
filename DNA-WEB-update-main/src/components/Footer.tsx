@@ -69,7 +69,7 @@ export default function Footer({ currentView, setView, theme }: FooterProps) {
       aria-label="Site Footer"
       className={`font-sans pt-16 pb-12 relative z-20 overflow-hidden transition-colors duration-300 ${
         isLight
-          ? 'bg-white border-t border-slate-200 text-slate-700'
+          ? 'bg-white/90 backdrop-blur-md border-t border-slate-200 text-slate-700'
           : 'bg-[#0B2442] border-t border-white/10 text-white/80'
       }`}
     >
@@ -92,7 +92,7 @@ export default function Footer({ currentView, setView, theme }: FooterProps) {
       <div
         className={`hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full pointer-events-none ${
           isLight
-            ? 'bg-radial from-slate-200/50 to-transparent opacity-60'
+            ? 'bg-radial from-[#0B2442]/[0.035] to-transparent opacity-50'
             : 'bg-radial from-white/5 to-transparent opacity-40'
         }`}
         aria-hidden="true"

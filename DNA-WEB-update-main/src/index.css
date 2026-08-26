@@ -193,10 +193,27 @@ textarea {
    No global element selectors, no wildcard overrides, minimal !important.
    ========================================================================== */
 
-.light body,
-.light #root {
+.light body {
   background-color: #FFFFFF;
+  background-image:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(11, 36, 66, 0.055) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(11, 36, 66, 0.04) 0%,
+      transparent 65%
+    );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   color: #0B2442;
+}
+
+.light #root {
+  background-color: transparent;
 }
 
 /* --------------------------------------------------------------------------
@@ -264,7 +281,7 @@ textarea {
 /* Inner accent tiles inside panels (icon boxes, chips, mini-stat tiles):
    dark navy fills become crisp soft white glass with proportional borders */
 .light .keep-dark-panel :where([class*="bg-[#0B2442]"], [class*="bg-[#0B2545]"], [class*="bg-[#051329]"], [class*="bg-[#010610]"]):not(.keep-dark-cta, [class*="hero-section"] *) {
-  background-color: rgba(241, 245, 249, 0.90);
+  background-color: rgba(255, 255, 255, 0.85);
   border-color: rgba(11, 36, 66, 0.16);
   color: #0B2442;
 }
@@ -314,7 +331,7 @@ textarea {
 }
 
 .light .hero-section .hero-card-subitem {
-  background-color: rgba(248, 250, 252, 0.90);
+  background-color: rgba(255, 255, 255, 0.85);
   border-color: rgba(11, 36, 66, 0.12);
 }
 
@@ -630,39 +647,6 @@ textarea {
   background-color: #FFFFFF;
   border-top-color: #E2E8F0;
   color: #334155;
-}
-/* =========================================================
-   LIGHT THEME — SUBTLE NAVY ATMOSPHERE
-   ========================================================= */
-
-.light {
-  background-color: #FFFFFF;
-}
-
-/* Proportional ambient illumination while keeping page background clean white */
-.light body {
-  background:
-    radial-gradient(
-      circle at 18% 15%,
-      rgba(2, 132, 199, 0.05),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 82% 48%,
-      rgba(11, 36, 66, 0.04),
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 45% 82%,
-      rgba(2, 132, 199, 0.035),
-      transparent 38%
-    ),
-    #FFFFFF;
-}
-
-/* Keep the actual application surface white */
-.light #root {
-  background-color: transparent;
 }
 
 /* Floating Abstract Data Blob Animation */
