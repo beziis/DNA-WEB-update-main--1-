@@ -23,9 +23,9 @@ export default function DataScrollBackground() {
       <ParticleNetworkCanvas className="opacity-100" />
 
       {/* Ambient gradient spotlights using dark navy #0B2442 / #0B2545 */}
-      <div className="hidden md:block absolute -top-40 -left-40 w-[550px] h-[550px] bg-radial from-[#0B2545]/20 to-transparent rounded-full pointer-events-none opacity-40 [.light_&]:opacity-20" />
-      <div className="hidden md:block absolute top-1/2 -right-40 w-[550px] h-[550px] bg-radial from-[#0B2442]/20 to-transparent rounded-full pointer-events-none opacity-30 [.light_&]:opacity-15" />
-      <div className="hidden md:block absolute -bottom-40 left-1/3 w-[550px] h-[550px] bg-radial from-[#0B2545]/20 to-transparent rounded-full pointer-events-none opacity-40 [.light_&]:opacity-20" />
+      <div className="hidden md:block absolute -top-40 -left-40 w-[550px] h-[550px] bg-radial from-[#0B2545]/20 to-transparent rounded-full pointer-events-none opacity-40 [.light_&]:opacity-35 [.light_&]:from-[#0284C7]/15" />
+      <div className="hidden md:block absolute top-1/2 -right-40 w-[550px] h-[550px] bg-radial from-[#0B2442]/20 to-transparent rounded-full pointer-events-none opacity-30 [.light_&]:opacity-30 [.light_&]:from-[#0B2442]/12" />
+      <div className="hidden md:block absolute -bottom-40 left-1/3 w-[550px] h-[550px] bg-radial from-[#0B2545]/20 to-transparent rounded-full pointer-events-none opacity-40 [.light_&]:opacity-35 [.light_&]:from-[#0284C7]/15" />
 
       {/* Global overlay for crisp readability */}
       <div className="absolute inset-0 bg-[#051329]/20 [.light_&]:bg-transparent pointer-events-none" />
@@ -39,9 +39,9 @@ export default function DataScrollBackground() {
           <div
             key={i}
             style={{ top: node.top, left: node.left }}
-            className="absolute font-mono text-[9px] tracking-widest text-white/80 bg-[#0B2545]/90 px-3 py-1.5 rounded-[12px] border border-white/20 hidden md:block shadow-md"
+            className="absolute font-mono text-[9px] tracking-widest text-white/80 [.light_&]:text-[#0B2442] bg-[#0B2545]/90 [.light_&]:bg-white/85 [.light_&]:backdrop-blur-md px-3 py-1.5 rounded-[12px] border border-white/20 [.light_&]:border-[#0B2442]/20 hidden md:block shadow-md [.light_&]:shadow-lg"
           >
-            <span className="w-1.5 h-1.5 inline-block rounded-full bg-white mr-2 animate-pulse" />
+            <span className="w-1.5 h-1.5 inline-block rounded-full bg-white [.light_&]:bg-[#0B2442] mr-2 animate-pulse" />
             {node.label}
           </div>
         ))}

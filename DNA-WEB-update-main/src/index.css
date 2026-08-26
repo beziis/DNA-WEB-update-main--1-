@@ -206,16 +206,16 @@ textarea {
       component class, or explicit style still wins — they only act as a safe
       fallback. The hero intentionally stays dark and is excluded.
    -------------------------------------------------------------------------- */
-.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(h1, h2, h3, h4):not(.hero-section *) {
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(h1, h2, h3, h4):not(.hero-section *) {
   color: #0B2442;
 }
 
-.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(p, li, span, a, label, address):not(.hero-section *) {
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(p, li, span, a, label, address):not(.hero-section *) {
   color: #334155;
 }
 
 /* Muted/opacity utility text on light surfaces */
-.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where([class*="text-white/"]):not(.hero-section *) {
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where([class*="text-white/"]):not(.hero-section *) {
   color: #64748B;
 }
 
@@ -225,18 +225,19 @@ textarea {
    opaque navy cards. Text inside flips to the dark high-contrast palette.
    -------------------------------------------------------------------------- */
 .light .keep-dark-panel {
-  background: rgba(255, 255, 255, 0.62);
-  background-color: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.78);
+  background-color: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-color: rgba(11, 36, 66, 0.12);
-  box-shadow: 0 12px 35px rgba(10, 37, 70, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  border-color: rgba(11, 36, 66, 0.14);
+  box-shadow: 0 12px 35px rgba(10, 37, 70, 0.08), 0 2px 6px -1px rgba(10, 37, 70, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .light .keep-dark-panel:hover {
-  background: rgba(255, 255, 255, 0.72);
-  background-color: rgba(255, 255, 255, 0.72);
-  border-color: rgba(11, 36, 66, 0.22);
+  background: rgba(255, 255, 255, 0.92);
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(11, 36, 66, 0.30) !important;
+  box-shadow: 0 20px 45px -8px rgba(10, 37, 70, 0.15), 0 0 24px -2px rgba(14, 116, 144, 0.10), inset 0 1px 0 #FFFFFF;
 }
 
 /* Dark high-contrast text inside white-glass panels (beats text-white utilities) */
@@ -257,23 +258,35 @@ textarea {
 }
 
 .light .keep-dark-panel :where([class*="border-white"]) {
-  border-color: rgba(11, 36, 66, 0.12);
+  border-color: rgba(11, 36, 66, 0.14);
 }
 
 /* Inner accent tiles inside panels (icon boxes, chips, mini-stat tiles):
-   dark navy fills become soft white glass so they don't read as navy cards */
-.light .keep-dark-panel :where([class*="bg-[#0B2442]"], [class*="bg-[#0B2545]"], [class*="bg-[#051329]"], [class*="bg-[#010610]"]) {
-  background-color: rgba(255, 255, 255, 0.55);
+   dark navy fills become crisp soft white glass with proportional borders */
+.light .keep-dark-panel :where([class*="bg-[#0B2442]"], [class*="bg-[#0B2545]"], [class*="bg-[#051329]"], [class*="bg-[#010610]"]):not(.keep-dark-cta, [class*="hero-section"] *) {
+  background-color: rgba(241, 245, 249, 0.90);
+  border-color: rgba(11, 36, 66, 0.16);
+  color: #0B2442;
+}
+
+.light .keep-dark-panel :where(.group:hover [class*="bg-[#0B2442]"], .group:hover [class*="bg-[#0B2545]"]):not(.keep-dark-cta) {
+  background-color: #0B2442;
+  border-color: #0B2442;
+  color: #FFFFFF;
+}
+
+.light .keep-dark-panel :where(.group:hover [class*="bg-[#0B2442]"] svg, .group:hover [class*="bg-[#0B2545]"] svg) {
+  color: #FFFFFF;
 }
 
 /* White-on-navy buttons/chips that sit on now-light surfaces flip to navy-on-white */
-.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a):not(.hero-section *, .keep-dark-cta) {
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a):not(.hero-section *, .keep-dark-cta) {
   color: #0B2442;
 }
 
 /* Buttons/chips with explicit navy fills keep white text (they stay dark pills) */
-.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a)[class*="bg-[#0B2442]"]:not(.keep-dark-cta),
-.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a)[class*="bg-slate-900"]:not(.keep-dark-cta) {
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a)[class*="bg-[#0B2442]"]:not(.keep-dark-cta),
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a)[class*="bg-slate-900"]:not(.keep-dark-cta) {
   color: #FFFFFF;
 }
 
@@ -333,13 +346,13 @@ textarea {
 
 .light .technical-grid {
   background-image:
-    linear-gradient(to right, rgba(11, 36, 66, 0.10) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(11, 36, 66, 0.10) 1px, transparent 1px);
+    linear-gradient(to right, rgba(11, 36, 66, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 36, 66, 0.08) 1px, transparent 1px);
 }
 
 /* --------------------------------------------------------------------------
    2. UNIFIED FROSTED GLASS & SEMANTIC COMPONENT CARDS
-      Dark: translucent navy glass → Light: translucent white glass.
+      Dark: translucent navy glass → Light: translucent white glass with crisp bevels.
    -------------------------------------------------------------------------- */
 .glass-card {
   background: rgba(11, 37, 69, 0.75);
@@ -356,11 +369,11 @@ textarea {
 .light .portfolio-card,
 .light .solution-card,
 .light .contact-card {
-  background: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(11, 36, 66, 0.12);
-  box-shadow: 0 12px 35px rgba(10, 37, 70, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(11, 36, 66, 0.14);
+  box-shadow: 0 12px 35px rgba(10, 37, 70, 0.08), 0 2px 6px -1px rgba(10, 37, 70, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 /* Light mode card text hierarchy (headings / body / muted) */
@@ -436,9 +449,73 @@ textarea {
 .light .portfolio-card:hover,
 .light .solution-card:hover,
 .light .contact-card:hover {
-  background: rgba(255, 255, 255, 0.72);
-  border-color: rgba(11, 36, 66, 0.22);
-  box-shadow: 0 16px 40px rgba(10, 37, 70, 0.12), inset 0 1px 0 #FFFFFF;
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(11, 36, 66, 0.30) !important;
+  box-shadow: 0 20px 45px -8px rgba(10, 37, 70, 0.15), 0 0 24px -2px rgba(14, 116, 144, 0.10), inset 0 1px 0 #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   2.1 PROPORTIONAL BORDER MAPPING FOR LIGHT MODE
+       Maps dark theme's white-alpha borders to crisp proportional navy-slate borders.
+   -------------------------------------------------------------------------- */
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page, #process-timeline-section, footer, .partner-marquee-section) [class*="border-white/5"]:not(.hero-section *) {
+  border-color: rgba(11, 36, 66, 0.08);
+}
+
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page, #process-timeline-section, footer, .partner-marquee-section) [class*="border-white/10"]:not(.hero-section *) {
+  border-color: rgba(11, 36, 66, 0.12);
+}
+
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page, #process-timeline-section, footer, .partner-marquee-section) [class*="border-white/15"]:not(.hero-section *) {
+  border-color: rgba(11, 36, 66, 0.16);
+}
+
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page, #process-timeline-section, footer, .partner-marquee-section) [class*="border-white/20"]:not(.hero-section *) {
+  border-color: rgba(11, 36, 66, 0.20);
+}
+
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page, #process-timeline-section, footer, .partner-marquee-section) [class*="border-white/25"]:not(.hero-section *) {
+  border-color: rgba(11, 36, 66, 0.24);
+}
+
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page, #process-timeline-section, footer, .partner-marquee-section) [class*="border-white/30"]:not(.hero-section *) {
+  border-color: rgba(11, 36, 66, 0.30);
+}
+
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page, #process-timeline-section, footer, .partner-marquee-section) [class*="border-white/40"]:not(.hero-section *) {
+  border-color: rgba(11, 36, 66, 0.38);
+}
+
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page, #process-timeline-section, footer, .partner-marquee-section) [class*="border-white/50"]:not(.hero-section *) {
+  border-color: rgba(11, 36, 66, 0.48);
+}
+
+/* --------------------------------------------------------------------------
+   2.2 SECTION DIVIDERS & BACKGROUND GRADIENTS IN LIGHT MODE
+   -------------------------------------------------------------------------- */
+.light section[class*="via-[#0B2545]"],
+.light section[class*="via-[#0B2442]"],
+.light div[class*="via-[#0B2545]"],
+.light div[class*="via-[#0B2442]"] {
+  background-image: linear-gradient(to bottom, transparent, rgba(11, 36, 66, 0.035), transparent);
+}
+
+.light section[class*="bg-[#0B2442]/20"],
+.light section[class*="bg-[#051329]/20"],
+.light section[class*="bg-[#0B2442]/30"],
+.light div[class*="bg-[#0B2442]/20"] {
+  background-color: rgba(11, 36, 66, 0.025);
+}
+
+/* Streak and highlight lines in light mode */
+.light [class*="via-white"]:not(.hero-section *) {
+  background-image: linear-gradient(to right, transparent, rgba(11, 36, 66, 0.35), transparent);
+}
+
+/* Image overlay scrims in light mode */
+.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) [class*="bg-gradient-to-t from-[#051329]"],
+.light :where(#about-page, #services-page, #solutions-page, #traction-page, #contact-page) [class*="bg-gradient-to-t from-[#0B2545]"] {
+  background-image: linear-gradient(to top, rgba(11, 36, 66, 0.45), transparent, transparent);
 }
 
 /* --------------------------------------------------------------------------
@@ -449,9 +526,9 @@ textarea {
 }
 
 .light #process-timeline-section .process-stage-card {
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(11, 36, 66, 0.12);
-  box-shadow: 0 12px 35px rgba(10, 37, 70, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(11, 36, 66, 0.14);
+  box-shadow: 0 12px 35px rgba(10, 37, 70, 0.08), 0 2px 6px -1px rgba(10, 37, 70, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .light #process-timeline-section .process-stage-card h3 {
@@ -468,10 +545,10 @@ textarea {
 }
 
 .light .process-stage-card [class*="via-white"] {
-  background-image: linear-gradient(to right, transparent, #0A2546, transparent);
+  background-image: linear-gradient(to right, transparent, rgba(10, 37, 70, 0.75), transparent);
 }
 
-.light span.animate-pulse {
+.light span.animate-pulse:not(.hero-section *) {
   background-color: #0A2546;
 }
 
@@ -545,6 +622,15 @@ textarea {
   fill: #475569;
   color: #475569;
 }
+
+/* --------------------------------------------------------------------------
+   8. FOOTER — LIGHT THEME
+   -------------------------------------------------------------------------- */
+.light footer {
+  background-color: #FFFFFF;
+  border-top-color: #E2E8F0;
+  color: #334155;
+}
 /* =========================================================
    LIGHT THEME — SUBTLE NAVY ATMOSPHERE
    ========================================================= */
@@ -553,17 +639,22 @@ textarea {
   background-color: #FFFFFF;
 }
 
-/* Very subtle navy atmosphere while keeping the page white */
+/* Proportional ambient illumination while keeping page background clean white */
 .light body {
   background:
     radial-gradient(
-      circle at 15% 15%,
-      rgba(11, 36, 66, 0.045),
-      transparent 32%
+      circle at 18% 15%,
+      rgba(2, 132, 199, 0.05),
+      transparent 35%
     ),
     radial-gradient(
-      circle at 85% 55%,
-      rgba(11, 36, 66, 0.035),
+      circle at 82% 48%,
+      rgba(11, 36, 66, 0.04),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 45% 82%,
+      rgba(2, 132, 199, 0.035),
       transparent 38%
     ),
     #FFFFFF;

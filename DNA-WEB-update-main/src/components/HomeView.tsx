@@ -33,7 +33,7 @@ interface HomeViewProps {
 
 export default function HomeView({ setCurrentPage }: HomeViewProps) {
   return (
-    <div className="bg-transparent text-white overflow-x-hidden font-sans relative">
+    <div id="home-page" className="bg-transparent text-white overflow-x-hidden font-sans relative">
       <DataScrollBackground />
 
       {/* 1. HERO SECTION */}

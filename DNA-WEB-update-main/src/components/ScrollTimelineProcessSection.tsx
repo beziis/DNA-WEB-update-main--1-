@@ -103,7 +103,7 @@ const StageNodeButton: React.FC<StageNodeButtonProps> = ({
 
   const containerClass = isMobile
     ? `w-10 h-10 sm:w-12 sm:h-12 rounded-xl border-2 flex items-center justify-center ${isLight ? 'text-[#0A2546]' : 'text-white'}`
-    : `w-14 h-14 rounded-2xl border-2 flex items-center justify-center transition-all relative ${isCurrent ? 'ring-4 ring-white/30 text-[#0B2442]' : isLight ? 'text-[#0A2546]' : 'text-white'
+    : `w-14 h-14 rounded-2xl border-2 flex items-center justify-center transition-all relative ${isCurrent ? (isLight ? 'ring-4 ring-[#0A2546]/25 text-[#0B2442]' : 'ring-4 ring-white/30 text-[#0B2442]') : isLight ? 'text-[#0A2546]' : 'text-white'
     }`;
 
   const iconClass = isMobile
@@ -173,7 +173,7 @@ const StageCardItem: React.FC<StageCardItemProps> = ({
         >
           {/* Active Background Glow Bar */}
           {isCurrent && (
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white to-transparent" />
+            <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent ${isLight ? 'via-[#0A2546]/80' : 'via-white'} to-transparent`} />
           )}
 
           {/* Title */}
@@ -182,7 +182,7 @@ const StageCardItem: React.FC<StageCardItemProps> = ({
           </h3>
 
           {/* Deliverables List */}
-          <div className="mt-4 pt-4 border-t border-white/10">
+          <div className={`mt-4 pt-4 border-t ${isLight ? 'border-[#0A2546]/12' : 'border-white/10'}`}>
             <p className={`text-xs sm:text-sm ${isLight ? 'text-slate-600' : 'text-white/85'} ${isEven ? 'lg:text-right' : ''}`}>
               {Array.isArray(stage.deliverables) ? stage.deliverables.join(', ') : stage.deliverables}
             </p>
@@ -318,11 +318,11 @@ export default function ScrollTimelineProcessSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 px-4 sm:px-6 lg:px-8 bg-[#051329]/20 border-b border-white/10 relative overflow-hidden text-left"
+      className={`py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden text-left border-b transition-colors duration-300 ${isLight ? 'bg-slate-50/50 border-slate-200' : 'bg-[#051329]/20 border-white/10'}`}
       id="process-timeline-section"
     >
       {/* Background Ambient Spotlight */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-radial from-[#0B2545]/20 to-transparent rounded-full pointer-events-none opacity-30" />
+      <div className={`absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full pointer-events-none ${isLight ? 'bg-radial from-[#0284C7]/12 to-transparent opacity-45' : 'bg-radial from-[#0B2545]/20 to-transparent opacity-30'}`} />
 
       <div className="max-w-6xl mx-auto relative z-10">
 

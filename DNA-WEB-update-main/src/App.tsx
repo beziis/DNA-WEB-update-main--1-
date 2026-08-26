@@ -144,7 +144,7 @@ export default function App() {
       </div>
 
       {/* Global Footer component */}
-      <Footer currentView={currentPage} setView={setCurrentPage} />
+      <Footer currentView={currentPage} setView={setCurrentPage} theme={theme} />
     </div>
   );
 }
