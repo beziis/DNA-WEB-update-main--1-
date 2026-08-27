@@ -147,61 +147,70 @@ export default function ServicesView({ setCurrentPage }: ServicesViewProps) {
 
           {/* Desktop Selector Tabs (1024px+) */}
           <div className="hidden lg:flex items-center space-x-2 overflow-x-auto pb-4 mb-8">
-            {coreServices.map((srv, idx) => (
-              <button
-                key={srv.id}
-                onClick={() => setActiveTab(idx)}
-                className={`px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
-                  activeTab === idx
-                    ? 'bg-white text-[#0B2442] shadow-md border border-white [.light_&]:bg-[#0B2442] [.light_&]:text-white [.light_&]:border-[#0B2442]'
-                    : 'bg-[#0B2442] text-white/80 hover:text-white hover:bg-white/15 border border-white/20 [.light_&]:bg-white/90 [.light_&]:text-slate-700 [.light_&]:border-slate-200 [.light_&]:hover:bg-slate-100 [.light_&]:hover:text-[#0B2442]'
-                }`}
-              >
-                {srv.title}
-              </button>
-            ))}
+            {coreServices.map((srv, idx) => {
+              const isActive = activeTab === idx;
+              return (
+                <button
+                  key={srv.id}
+                  onClick={() => setActiveTab(idx)}
+                  className={`px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+                    isActive
+                      ? 'tab-btn-active shadow-md border'
+                      : 'tab-btn-inactive border'
+                  }`}
+                >
+                  {srv.title}
+                </button>
+              );
+            })}
           </div>
 
           {/* Tablet 2-Column Compact Selector Grid (768px - 1023px) */}
           <div className="hidden md:grid md:grid-cols-2 lg:hidden gap-3 mb-6">
-            {coreServices.map((srv, idx) => (
-              <button
-                key={srv.id}
-                onClick={() => setActiveTab(idx)}
-                className={`flex items-center justify-between p-3.5 rounded-xl font-mono text-xs font-bold transition-all min-h-[44px] cursor-pointer text-left ${
-                  activeTab === idx
-                    ? 'bg-white text-[#0B2442] shadow-md border-l-4 border-[#0B2442] [.light_&]:bg-[#0B2442] [.light_&]:text-white [.light_&]:border-l-4 [.light_&]:border-[#0284C7]'
-                    : 'bg-[#0B2442] text-white/80 hover:bg-white/10 border border-white/15 [.light_&]:bg-white/90 [.light_&]:text-slate-700 [.light_&]:border-slate-200 [.light_&]:hover:bg-slate-100 [.light_&]:hover:text-[#0B2442]'
-                }`}
-              >
-                <div className="flex items-center space-x-3 truncate">
-                  <span className="text-[10px] opacity-60 flex-shrink-0">0{idx + 1}</span>
-                  <span className="font-sans font-bold text-xs truncate">{srv.title}</span>
-                </div>
-                <ChevronRight className="w-4 h-4 flex-shrink-0 ml-2" />
-              </button>
-            ))}
+            {coreServices.map((srv, idx) => {
+              const isActive = activeTab === idx;
+              return (
+                <button
+                  key={srv.id}
+                  onClick={() => setActiveTab(idx)}
+                  className={`flex items-center justify-between p-3.5 rounded-xl font-mono text-xs font-bold transition-all min-h-[44px] cursor-pointer text-left ${
+                    isActive
+                      ? 'tab-btn-active shadow-md border-l-4'
+                      : 'tab-btn-inactive border'
+                  }`}
+                >
+                  <div className="flex items-center space-x-3 truncate">
+                    <span className="text-[10px] opacity-70 flex-shrink-0">0{idx + 1}</span>
+                    <span className="font-sans font-bold text-xs truncate">{srv.title}</span>
+                  </div>
+                  <ChevronRight className="w-4 h-4 flex-shrink-0 ml-2" />
+                </button>
+              );
+            })}
           </div>
 
           {/* Mobile Vertical Compact Selector List (<768px) */}
           <div className="block md:hidden space-y-2 mb-6">
-            {coreServices.map((srv, idx) => (
-              <button
-                key={srv.id}
-                onClick={() => setActiveTab(idx)}
-                className={`w-full flex items-center justify-between p-3.5 rounded-xl font-mono text-xs font-bold transition-all min-h-[44px] cursor-pointer ${
-                  activeTab === idx
-                    ? 'bg-white text-[#0B2442] shadow-md border-l-4 border-[#0B2442] [.light_&]:bg-[#0B2442] [.light_&]:text-white [.light_&]:border-l-4 [.light_&]:border-[#0284C7]'
-                    : 'bg-[#0B2442] text-white/80 hover:bg-white/10 border border-white/15 [.light_&]:bg-white/90 [.light_&]:text-slate-700 [.light_&]:border-slate-200 [.light_&]:hover:bg-slate-100 [.light_&]:hover:text-[#0B2442]'
-                }`}
-              >
-                <div className="flex items-center space-x-3">
-                  <span className="text-[10px] opacity-60">0{idx + 1}</span>
-                  <span className="font-sans font-bold text-xs">{srv.title}</span>
-                </div>
-                <ChevronRight className="w-4 h-4 flex-shrink-0" />
-              </button>
-            ))}
+            {coreServices.map((srv, idx) => {
+              const isActive = activeTab === idx;
+              return (
+                <button
+                  key={srv.id}
+                  onClick={() => setActiveTab(idx)}
+                  className={`w-full flex items-center justify-between p-3.5 rounded-xl font-mono text-xs font-bold transition-all min-h-[44px] cursor-pointer ${
+                    isActive
+                      ? 'tab-btn-active shadow-md border-l-4'
+                      : 'tab-btn-inactive border'
+                  }`}
+                >
+                  <div className="flex items-center space-x-3">
+                    <span className="text-[10px] opacity-70">0{idx + 1}</span>
+                    <span className="font-sans font-bold text-xs">{srv.title}</span>
+                  </div>
+                  <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                </button>
+              );
+            })}
           </div>
 
           {/* Active Detail Display */}
@@ -233,7 +242,7 @@ export default function ServicesView({ setCurrentPage }: ServicesViewProps) {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#051329] via-transparent to-transparent opacity-80" />
-                    <span className="absolute bottom-3 left-4 font-mono text-[10px] uppercase tracking-wider text-white font-bold bg-[#0B2442]/95 px-2.5 py-1 rounded-md border border-white/20">
+                    <span className="absolute bottom-3 left-4 font-mono text-[10px] uppercase tracking-wider text-white font-bold bg-[#0B2442]/95 px-2.5 py-1 rounded-md border border-white/20 keep-dark-cta">
                       {coreServices[activeTab].title} Infrastructure
                     </span>
                   </div>

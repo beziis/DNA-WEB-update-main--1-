@@ -280,31 +280,86 @@ textarea {
 
 /* Inner accent tiles inside panels (icon boxes, chips, mini-stat tiles):
    dark navy fills become crisp soft white glass with proportional borders */
-.light .keep-dark-panel :where([class*="bg-[#0B2442]"], [class*="bg-[#0B2545]"], [class*="bg-[#051329]"], [class*="bg-[#010610]"]):not(.keep-dark-cta, [class*="hero-section"] *) {
+.light .keep-dark-panel :where([class*="bg-[#0B2442]"], [class*="bg-[#0B2545]"], [class*="bg-[#051329]"], [class*="bg-[#010610]"]):not(.keep-dark-cta, .tab-btn-active, [class*="hero-section"] *) {
   background-color: rgba(255, 255, 255, 0.85);
   border-color: rgba(11, 36, 66, 0.16);
   color: #0B2442;
 }
 
-.light .keep-dark-panel :where(.group:hover [class*="bg-[#0B2442]"], .group:hover [class*="bg-[#0B2545]"]):not(.keep-dark-cta) {
+.light .keep-dark-panel :where(.group:hover [class*="bg-[#0B2442]"], .group:hover [class*="bg-[#0B2545]"]):not(.keep-dark-cta, .tab-btn-active) {
   background-color: #0B2442;
   border-color: #0B2442;
   color: #FFFFFF;
 }
 
-.light .keep-dark-panel :where(.group:hover [class*="bg-[#0B2442]"] svg, .group:hover [class*="bg-[#0B2545]"] svg) {
+.light .keep-dark-panel :where(.group:hover [class*="bg-[#0B2442]"] svg, .group:hover [class*="bg-[#0B2545]"] svg):not(.keep-dark-cta, .tab-btn-active) {
   color: #FFFFFF;
 }
 
 /* White-on-navy buttons/chips that sit on now-light surfaces flip to navy-on-white */
-.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a):not(.hero-section *, .keep-dark-cta) {
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a):not(.hero-section *, .keep-dark-cta, .tab-btn-active, .tab-btn-inactive) {
   color: #0B2442;
 }
 
-/* Buttons/chips with explicit navy fills keep white text (they stay dark pills) */
-.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a)[class*="bg-[#0B2442]"]:not(.keep-dark-cta),
-.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a)[class*="bg-slate-900"]:not(.keep-dark-cta) {
+/* Buttons/chips with explicit dark fills keep white text */
+.light :where(#home-page, #about-page, #services-page, #solutions-page, #traction-page, #contact-page) :where(button, a).keep-dark-cta {
   color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   TAB BUTTONS (ServicesView & SolutionsView) - High Contrast Light & Dark
+   -------------------------------------------------------------------------- */
+.tab-btn-active {
+  background-color: #FFFFFF !important;
+  color: #0B2442 !important;
+  border-color: #FFFFFF !important;
+}
+.tab-btn-active :where(span, div, svg) {
+  color: #0B2442 !important;
+}
+
+.light .tab-btn-active {
+  background-color: #0B2442 !important;
+  color: #FFFFFF !important;
+  border-color: #0B2442 !important;
+  box-shadow: 0 4px 14px rgba(11, 36, 66, 0.28) !important;
+}
+.light .tab-btn-active :where(span, div, svg) {
+  color: #FFFFFF !important;
+}
+
+.tab-btn-inactive {
+  background-color: #0B2442 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+.tab-btn-inactive:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+}
+.tab-btn-inactive :where(span, div, svg) {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.tab-btn-inactive:hover :where(span, div, svg) {
+  color: #FFFFFF !important;
+}
+
+.light .tab-btn-inactive {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #1E293B !important;
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+.light .tab-btn-inactive:hover {
+  background-color: #F1F5F9 !important;
+  color: #0B2442 !important;
+  border-color: #94A3B8 !important;
+}
+.light .tab-btn-inactive :where(span, div, svg) {
+  color: #1E293B !important;
+}
+.light .tab-btn-inactive:hover :where(span, div, svg) {
+  color: #0B2442 !important;
 }
 
 /* --------------------------------------------------------------------------

@@ -232,8 +232,8 @@ export default function Footer({ currentView, setView, theme }: FooterProps) {
                     onClick={() => handleNavClick('services')}
                     className={`transition-colors cursor-pointer text-left py-1.5 px-2 -mx-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 min-h-[36px] ${
                       isLight
-                        ? 'hover:text-[#0B2442] focus-visible:ring-offset-white'
-                        : 'hover:text-white focus-visible:ring-offset-[#0B2545]'
+                        ? 'text-slate-600 hover:text-[#0B2442] hover:translate-x-1 focus-visible:ring-offset-white'
+                        : 'text-white/70 hover:text-white hover:translate-x-1 focus-visible:ring-offset-[#0B2545]'
                     }`}
                     aria-label={`Learn more about our ${srv} service`}
                   >
